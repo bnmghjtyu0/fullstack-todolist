@@ -26,7 +26,7 @@ const TodoList = () => {
       });
   };
   const getTodo = () => {
-    fetch("/api/list")
+    fetch("https://interview-todolist.herokuapp.com/api/list")
       .then((res) => res.json())
       .then((json) => {
         console.log(json);
@@ -51,7 +51,7 @@ const TodoList = () => {
     );
     if (!isDuplicateName) {
       fetch(
-        `/api/list?city=${formRef.current.select.value}&name=${formRef.current.name.value}&email=${formRef.current.email.value}`,
+        `https://interview-todolist.herokuapp.com/api/list?city=${formRef.current.select.value}&name=${formRef.current.name.value}&email=${formRef.current.email.value}`,
         {
           method: "POST",
         }
@@ -71,7 +71,7 @@ const TodoList = () => {
   };
 
   const deleteTodo = (id) => {
-    fetch(`/api/list?id=${id}`, {
+    fetch(`https://interview-todolist.herokuapp.com/api/list?id=${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -86,7 +86,7 @@ const TodoList = () => {
   const updateTodo = (id, data) => {
     //   db.collection("cafes").doc(id).update(data);
     fetch(
-      `/api/list?id=${id}&name=${data.name}&email=${data.email}&city=${data.city}`,
+      `https://interview-todolist.herokuapp.com/api/list?id=${id}&name=${data.name}&email=${data.email}&city=${data.city}`,
       {
         method: "PUT",
       }
